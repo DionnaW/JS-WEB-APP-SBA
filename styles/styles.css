@@ -1,5 +1,7 @@
 body {
     background-color: antiquewhite;
+    height: 100%;
+    width: fit-content;
 }
 
 .gallery-container {
