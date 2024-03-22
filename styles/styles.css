@@ -1,3 +1,15 @@
 body {
     background-color: antiquewhite;
 }
+
+.gallery-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .gallery-item {
+    width: 200px;
+    height: 200px;
+    background-color: lightgray;
+  }

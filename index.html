@@ -8,9 +8,59 @@
     <script defer src="./script/index.js"></script>
 </head>
 <body>
-    <h1>ALL ABOUT CATS</h1>
 
-    <p>Let's explore some cats!</p>
+    <h1>All About Cats</h1>
+
+    <ul id="breed-list">
+        <!-- list will be here on actual browser-->
+    </ul>
+
+    <h2>The Joy of Cats in View; <br> Refresh page to see new images</h2>
+
+    <div class="gallery-container" id="gallery-container"></div>
+
+  <!-- <button id="previous-button" disabled>Previous</button> -->
+  <!-- <button id="next-button">Next</button> -->
+
+    <script>
+        fetch('https://api.thecatapi.com/v1/breeds')
+            .then(response => response.json())
+            .then(data => {
+                const breedList = document.getElementById('breed-list');
+                data.forEach(breed => {
+                    const breedItem = document.createElement('li');
+                    breedItem.textContent = breed.name;
+          breedList.appendChild(breedItem);
+        });
+      })
+      .catch(error => {
+        console.error(error);
+      });
+
+      const galleryContainer = document.getElementById('gallery-container');
+
+      fetch('https://api.thecatapi.com/v1/images/search?limit=10', {
+  headers: {
+    'x-api-key': 'live_OwhhhHYXMP56Fmf24uUzlKb1Zl5XrO3926cS4Mr2Ngcno632lTMw1v2iiG9YcsUF'
+  }
+})
+
+.then(response => response.json())
+  .then(data => {
+    data.forEach(cat => {
+      const catImage = document.createElement('img');
+      catImage.src = cat.url;
+      galleryContainer.appendChild(catImage);
+    });
+  })
+  .catch(error => {
+    console.error(error);
+  });
+
+
+
+    </script>
+    
     
 </body>
 </html>
