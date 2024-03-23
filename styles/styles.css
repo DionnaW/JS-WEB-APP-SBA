@@ -11,7 +11,12 @@ body {
   }
   
   .gallery-item {
-    width: 200px;
-    height: 200px;
+    width: fit-content;
+    height: fit-content;
     background-color: lightgray;
+  }
+
+  h1 {
+    color: red;
+    font-style: italic;
   }
