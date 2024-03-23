@@ -1,25 +1,39 @@
 //console.log("checking 1, 2, 3"); //just checking to make sure everything is up and running
 
-// import { TheCatAPI } from "@thatapicompany/thecatapi";
-// const API_KEY = 'api_key=live_OwhhhHYXMP56Fmf24uUzlKb1Zl5XrO3926cS4Mr2Ngcno632lTMw1v2iiG9YcsUF';
-// 
-// async function getVotes() {
-    // const votes = await theCatAPI.votes.getVotes();
-    // return votes;
-//   }
-// 
+const apiKey = 'live_OwhhhHYXMP56Fmf24uUzlKb1Zl5XrO3926cS4Mr2Ngcno632lTMw1v2iiG9YcsUF';
+const requestBody = {
+    name: 'Fluffy',
+    breed: 'Persian',
+    age: 3
+};
 
+function handleResponse(response) {
+    if (response.ok) {
+      return response.json()
+        .then(data => {
+          console.log(data);
+        })
+        .catch(error => {
+          console.error('Error parsing response:', error);
+        });
+    } else {
+      console.error('Request failed with status:', response.status);
+    }
+  }
+  
+  postData();
 
-// fetch('https://api.thecatapi.com/v1/favourites', {
-//   method: 'POST',
-//   headers: {
-    // 'Content-Type': 'application/json'
-//   },
-//   body: JSON.stringify({
-    // title: 'My Post',
-    // content: 'This is the content of my post'
-//   })
-// })
-//   .then(response => response.json())
-//   .then(data => console.log('Post created:', data))
-//   .catch(error => console.error('Error:', error));
+async function postData() {
+    const response = await fetch('https://jsonplaceholder.typicode.com/todos', {
+      method: 'POST',
+      body: JSON.stringify(requestBody),
+      headers: {
+        'Content-Type': 'application/json; charset=UTF-8',
+        'x-api-key': apiKey // add your API key header here
+      }
+    });
+  
+    handleResponse(response);
+  }
+  
+  postData();
