@@ -1,7 +1,7 @@
 body {
     background-color: antiquewhite;
-    height: 100%;
-    width: fit-content;
+    position: 0 -201.333 -5173.710 0;
+    margin: 8 8 8 8;
 }
 
 .gallery-container {
@@ -17,12 +17,26 @@ body {
   }
 
   h1 {
-    color: red;
-    font-style: italic;
-    margin-left: 550px;
+    color: black;
+    font-style: normal;
+    display: flex;
+    justify-content: center;
+
   }
 
   p {
-    margin-left: 20px;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
     align-items: center;
+    border: 5px solid red;
+    margin: 0 auto;
+    text-align: justify;
+  }
+
+  #breed-list {
+    columns: 4;
+    -moz-columns: 4;
+    -webkit-columns: 4;
+    column-width: none;
   }
